@@ -17,6 +17,7 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            margin: 0;
         }
         .navbar {
             width: 100%;
@@ -28,14 +29,20 @@
             flex-wrap: wrap;
             border-bottom: 2px solid #000;
         }
-        .navbar img {
-            height: 36px;
+        .navbar .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+        .navbar .logo span {
+            color: #e03a3a;
         }
         .nav-links {
             display: flex;
-            gap: 24px;
+            gap: 28px;
             color: #fff;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 500;
         }
         .nav-links span {
@@ -57,7 +64,7 @@
         .nav-right .signup-btn {
             background: #e03a3a;
             color: #fff;
-            padding: 8px 18px;
+            padding: 8px 20px;
             border-radius: 4px;
             font-weight: 600;
             text-decoration: none;
@@ -68,23 +75,23 @@
         }
         .login-container {
             background: #fff;
-            padding: 40px 36px 32px;
+            padding: 44px 40px 36px;
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.2);
             width: 100%;
             max-width: 400px;
             margin-top: 60px;
         }
         .login-container h1 {
-            font-size: 28px;
-            font-weight: 600;
+            font-size: 30px;
+            font-weight: 700;
             color: #1a1a2e;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
         .login-container .sub {
             color: #5a5a5a;
             font-size: 14px;
-            margin-bottom: 22px;
+            margin-bottom: 24px;
         }
         .login-container label {
             display: block;
@@ -99,13 +106,14 @@
             border: 1px solid #c4c9d4;
             border-radius: 6px;
             font-size: 15px;
-            background: #fff;
+            background: #fafafa;
             transition: 0.2s;
         }
         .login-container input:focus {
             border-color: #0077ff;
             outline: none;
-            box-shadow: 0 0 0 3px rgba(0,119,255,0.15);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(0,119,255,0.12);
         }
         .login-container .forgot {
             display: block;
@@ -114,6 +122,7 @@
             color: #0077ff;
             text-decoration: none;
             margin-top: 6px;
+            font-weight: 500;
         }
         .login-container .forgot:hover {
             text-decoration: underline;
@@ -154,13 +163,14 @@
             text-decoration: none;
             font-weight: 500;
             font-size: 14px;
+            margin-top: 4px;
         }
         .login-container .quick-link:hover {
             text-decoration: underline;
         }
         .login-container .signup-bottom {
             text-align: center;
-            margin-top: 22px;
+            margin-top: 24px;
             font-size: 14px;
             color: #444;
         }
@@ -201,7 +211,7 @@
 </head>
 <body>
     <div class="navbar">
-        <img src="roblox-logo.png" alt="Roblox">
+        <div class="logo">ROBLOX<span>.</span></div>
         <div class="nav-links">
             <span>Charts</span>
             <a href="#">Marketplace</a>
